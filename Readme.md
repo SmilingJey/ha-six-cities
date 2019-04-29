@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Артём Евсяков](https://up.htmlacademy.ru/react/1/user/637603).
-* Наставник: `Неизвестно`.
+* Наставник: [Юрий Татаринцев](https://htmlacademy.ru/profile/id235196).
 
 ---
 
