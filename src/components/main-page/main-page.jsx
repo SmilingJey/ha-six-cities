@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 const MainPage = (props) => {
-  const {places} = props;
+  const {places, onTitleClick} = props;
 
   return <div>
     <header className="header">
@@ -118,7 +118,7 @@ const MainPage = (props) => {
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">{place.title}</a>
+                      <a href="#" onClick={onTitleClick}>{place.title}</a>
                     </h2>
                     <p className="place-card__type">Apartment</p>
                   </div>
@@ -138,7 +138,8 @@ const MainPage = (props) => {
 MainPage.propTypes = {
   places: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired
-  })).isRequired
+  })).isRequired,
+  onTitleClick: PropTypes.func
 };
 
 export default MainPage;
