@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MainPage correctly renders 1`] = `
+exports[`MainPage snapshot 1`] = `
 <div>
   <header
     className="header"
@@ -236,12 +236,13 @@ exports[`MainPage correctly renders 1`] = `
               >
                 <a
                   href="#"
+                  onClick={[Function]}
                 >
                   <img
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/apartment-01.jpg"
+                    src="img/test-image1.jpg"
                     width="260"
                   />
                 </a>
@@ -258,7 +259,8 @@ exports[`MainPage correctly renders 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €120
+                      €
+                      111
                     </b>
                     <span
                       className="place-card__price-text"
@@ -295,7 +297,7 @@ exports[`MainPage correctly renders 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "93%",
+                          "width": "{props.place.rating}%",
                         }
                       }
                     />
@@ -311,8 +313,9 @@ exports[`MainPage correctly renders 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[Function]}
                   >
-                    Some title for place
+                    Test title 1
                   </a>
                 </h2>
                 <p
@@ -326,23 +329,17 @@ exports[`MainPage correctly renders 1`] = `
               className="cities__place-card place-card"
             >
               <div
-                className="place-card__mark"
-              >
-                <span>
-                  Premium
-                </span>
-              </div>
-              <div
                 className="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
                   href="#"
+                  onClick={[Function]}
                 >
                   <img
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/apartment-01.jpg"
+                    src="img/test-image2.jpg"
                     width="260"
                   />
                 </a>
@@ -359,7 +356,8 @@ exports[`MainPage correctly renders 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €120
+                      €
+                      222
                     </b>
                     <span
                       className="place-card__price-text"
@@ -396,7 +394,7 @@ exports[`MainPage correctly renders 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "93%",
+                          "width": "{props.place.rating}%",
                         }
                       }
                     />
@@ -412,14 +410,15 @@ exports[`MainPage correctly renders 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[Function]}
                   >
-                    Some title for place
+                    Test title 2
                   </a>
                 </h2>
                 <p
                   className="place-card__type"
                 >
-                  Apartment
+                  Room
                 </p>
               </div>
             </article>
