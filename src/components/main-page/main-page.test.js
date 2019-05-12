@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from './app.jsx';
+import MainPage from './main-page.jsx';
 
 const mockPlaces = [
   {
@@ -23,7 +23,7 @@ const mockPlaces = [
   },
 ];
 
-it(`App snapshot`, () => {
-  const tree = renderer.create(<App places={mockPlaces} />).toJSON();
+it(`MainPage snapshot`, () => {
+  const tree = renderer.create(<MainPage places={mockPlaces} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
