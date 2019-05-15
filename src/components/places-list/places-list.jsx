@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import PlaceCard from '../place-card/place-card.jsx';
+import CitiesMap from "../cities-map/cities-map.jsx";
 
 class PlacesList extends PureComponent {
   constructor(props) {
@@ -14,7 +15,7 @@ class PlacesList extends PureComponent {
   }
 
   render() {
-    const {places} = this.props;
+    const {places, cities} = this.props;
     return <div className="cities__places-wrapper">
       <div className="cities__places-container container">
         <section className="cities__places places">
@@ -45,7 +46,10 @@ class PlacesList extends PureComponent {
           </div>
         </section>
         <div className="cities__right-section">
-          <section className="cities__map map"></section>
+          <CitiesMap
+            city={cities[0]}
+            places={places}
+          />
         </div>
       </div>
     </div>;
@@ -58,6 +62,7 @@ class PlacesList extends PureComponent {
 
 PlacesList.propTypes = {
   places: PropTypes.array.isRequired,
+  cities: PropTypes.array.isRequired,
 };
 
 export default PlacesList;

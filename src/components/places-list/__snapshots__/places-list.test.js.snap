@@ -284,8 +284,19 @@ exports[`PlacesList snapshot 1`] = `
       className="cities__right-section"
     >
       <section
-        className="cities__map map"
-      />
+        className="cities__map"
+      >
+        <div
+          id="map"
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        >
+          <div />
+        </div>
+      </section>
     </div>
   </div>
 </div>

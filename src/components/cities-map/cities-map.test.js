@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import MainPage from './main-page.jsx';
+import CitiesMap from './cities-map.jsx';
 
 const mock = {
   places: [
@@ -31,8 +31,8 @@ const mock = {
   }],
 };
 
-it(`MainPage snapshot`, () => {
+it(`CitiesMap snapshot`, () => {
   const {places, cities} = mock;
-  const tree = renderer.create(<MainPage places={places} cities={cities} />).toJSON();
+  const tree = renderer.create(<CitiesMap places={places} city={cities[0]} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

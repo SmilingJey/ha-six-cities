@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import PlacesList from '../places-list/places-list.jsx';
 
 const MainPage = (props) => {
-  const {places} = props;
+  const {places, cities} = props;
 
   return <div>
     <header className="header">
@@ -67,13 +67,17 @@ const MainPage = (props) => {
           </ul>
         </section>
       </div>
-      <PlacesList places={places} />
+      <PlacesList
+        places={places}
+        cities={cities}
+      />
     </main>
   </div>;
 };
 
 MainPage.propTypes = {
   places: PropTypes.array.isRequired,
+  cities: PropTypes.array.isRequired,
 };
 
 export default MainPage;
