@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CitiesMap snapshot 1`] = `
+<section
+  className="cities__map"
+>
+  <div
+    id="map"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div />
+  </div>
+</section>
+`;
