@@ -8,6 +8,7 @@ export default [
     title: `Beautiful &amp; luxurious apartment at great location`,
     type: `Apartment`,
     coordinates: [52.3909553943508, 4.85309666406198],
+    city: `Amsterdam`,
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export default [
     title: `Wood and stone place`,
     type: `Apartment`,
     coordinates: [52.369553943508, 4.85309666406198],
+    city: `Amsterdam`,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export default [
     title: `Canal View Prinsengracht`,
     type: `Apartment`,
     coordinates: [52.3909553943508, 4.929309666406198],
+    city: `Amsterdam`,
   },
   {
     id: 4,
@@ -38,5 +41,28 @@ export default [
     title: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,
     coordinates: [52.3809553943508, 4.939309666406198],
+    city: `Amsterdam`,
+  },
+  {
+    id: 5,
+    isPremium: false,
+    picture: `apartment-03.jpg`,
+    price: 150,
+    rating: 70,
+    title: `Canal View Prinsengracht`,
+    type: `Apartment`,
+    coordinates: [48.856063, 2.329028],
+    city: `Paris`,
+  },
+  {
+    id: 6,
+    isPremium: false,
+    picture: `apartment-01.jpg`,
+    price: 100,
+    rating: 100,
+    title: `Nice, cozy, warm big bed apartment`,
+    type: `Apartment`,
+    coordinates: [48.861372, 2.359927],
+    city: `Paris`,
   },
 ];

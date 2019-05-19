@@ -1,38 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import App from './app.jsx';
-
-const mock = {
-  places: [
-    {
-      id: 999,
-      isPremium: true,
-      picture: `test-image1.jpg`,
-      price: 111,
-      rating: 22,
-      title: `Test title 1`,
-      type: `Apartment`,
-      coordinates: [52.3909553943508, 4.85309666406198],
-    },
-    {
-      id: 222,
-      isPremium: false,
-      picture: `test-image2.jpg`,
-      price: 222,
-      rating: 100,
-      title: `Test title 2`,
-      type: `Room`,
-      coordinates: [52.3909553943508, 4.85309666406198],
-    },
-  ],
-  cities: [{
-    name: `Amsterdam`,
-    coordinates: [52.38333, 4.9],
-  }],
-};
+import {createStore} from 'redux';
+import {reducer} from '../../reducers/reducer';
+import {Provider} from 'react-redux';
 
 it(`App snapshot`, () => {
-  const {places, cities} = mock;
-  const tree = renderer.create(<App places={places} cities={cities} />).toJSON();
+  const store = createStore(reducer);
+  const tree = renderer.create(<Provider store={store}>
+    <App />
+  </Provider>).toJSON();
   expect(tree).toMatchSnapshot();
 });

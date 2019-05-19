@@ -1,21 +1,21 @@
 import React, {PureComponent} from 'react';
 import leaflet from 'leaflet';
 import PropTypes from "prop-types";
-import ReactResizeDetector from 'react-resize-detector';
 
-class CitiesMap extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.handlerHeightResize = this.handlerHeightResize.bind(this);
-  }
+const markerIcon = leaflet.icon({
+  iconUrl: `img/pin.svg`,
+  iconSize: [27, 39]
+});
 
+const activeMarkerIcon = leaflet.icon({
+  iconUrl: `img/active-pin.svg`,
+  iconSize: [27, 39]
+});
+
+class CityMap extends PureComponent {
   render() {
     return <section className="cities__map">
-      <div id="map" style={{height: `100%`}} ref={(ref) => {
-        this.container = ref;
-        return this.container;
-      }}>
-        <ReactResizeDetector handleHeight onResize={this.handlerHeightResize} />
+      <div id="map" style={{height: `100%`}}>
       </div>
     </section>;
   }
@@ -24,11 +24,6 @@ class CitiesMap extends PureComponent {
     const {city, places} = this.props;
 
     setTimeout(() => {
-      const icon = leaflet.icon({
-        iconUrl: `img/pin.svg`,
-        iconSize: [30, 30]
-      });
-
       const zoom = 12;
 
       this.map = leaflet.map(`map`, {
@@ -47,32 +42,45 @@ class CitiesMap extends PureComponent {
           }
       ).addTo(this.map);
 
+      this.markersLayer = leaflet.layerGroup().addTo(this.map);
       for (const place of places) {
-        leaflet.marker(place.coordinates, {icon}).addTo(this.map);
+        leaflet.marker(place.coordinates, {icon: markerIcon}).addTo(this.markersLayer);
       }
     }, 10);
+  }
+
+  componentDidUpdate() {
+    if (this.map && this.markersLayer) {
+      const {city, places, activePlace} = this.props;
+
+      const center = activePlace ? activePlace.coordinates : city.coordinates;
+      this.map.panTo(center);
+
+      this.markersLayer.clearLayers();
+      for (const place of places) {
+        const icon = (activePlace && activePlace.id === place.id) ?
+          activeMarkerIcon : markerIcon;
+        leaflet.marker(place.coordinates, {icon}).addTo(this.markersLayer);
+      }
+    }
   }
 
   componentWillUnmount() {
     this.map.remove();
     this.map = null;
   }
-
-  handlerHeightResize() {
-    this.map.invalidateSize();
-  }
 }
 
-CitiesMap.propTypes = {
+CityMap.propTypes = {
   places: PropTypes.arrayOf(
       PropTypes.shape({
         coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
       })
   ).isRequired,
-
   city: PropTypes.shape({
     coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-  })
+  }),
+  activePlace: PropTypes.object,
 };
 
-export default CitiesMap;
+export default CityMap;
