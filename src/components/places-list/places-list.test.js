@@ -25,15 +25,20 @@ const mock = {
       coordinates: [52.3909553943508, 4.85309666406198],
     },
   ],
-  cities: [{
+  city: {
     name: `Amsterdam`,
     coordinates: [52.38333, 4.9],
-  }],
+  },
 };
 
 
 it(`PlacesList snapshot`, () => {
-  const {places, cities} = mock;
-  const tree = renderer.create(<PlacesList places={places} cities={cities} />).toJSON();
+  const {places, city} = mock;
+  const tree = renderer.create(<PlacesList
+    places={places}
+    city={city}
+    activePlace={null}
+    onActivatePlace={jest.fn()}
+  />).toJSON();
   expect(tree).toMatchSnapshot();
 });

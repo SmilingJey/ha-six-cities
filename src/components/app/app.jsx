@@ -1,20 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import MainPage from '../main-page/main-page.jsx';
+import Header from '../header/header.jsx';
 
-const App = (props) => {
-  const {places, cities} = props;
-  return (
-    <MainPage
-      places={places}
-      cities={cities}
-    />
-  );
-};
-
-App.propTypes = {
-  places: PropTypes.array.isRequired,
-  cities: PropTypes.array.isRequired,
+const App = () => {
+  return <React.Fragment>
+    <Header />
+    <MainPage />
+  </React.Fragment>;
 };
 
 export default App;
+
+

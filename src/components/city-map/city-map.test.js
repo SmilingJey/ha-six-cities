@@ -1,9 +1,6 @@
 import React from 'react';
-import {configure, mount} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import PlacesList from './places-list.jsx';
-
-configure({adapter: new Adapter()});
+import renderer from 'react-test-renderer';
+import CityMap from './city-map.jsx';
 
 const mock = {
   places: [
@@ -28,18 +25,14 @@ const mock = {
       coordinates: [52.3909553943508, 4.85309666406198],
     },
   ],
-  cities: [{
+  city: {
     name: `Amsterdam`,
     coordinates: [52.38333, 4.9],
-  }],
+  },
 };
 
-it(`On place card activate set places list state`, () => {
-  const {places, cities} = mock;
-  const app = mount(<PlacesList places={places} cities={cities} />);
-  const imageLinks = app.find(`.place-card__image-wrapper a`);
-  imageLinks.at(0).simulate(`click`);
-  app.update();
-  expect(app.state(`activePlace`)).toEqual(places[0]);
+it(`CitiesMap snapshot`, () => {
+  const {places, city} = mock;
+  const tree = renderer.create(<CityMap places={places} city={city} />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
-
