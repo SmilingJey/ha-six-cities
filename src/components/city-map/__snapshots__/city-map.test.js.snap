@@ -11,8 +11,6 @@ exports[`CitiesMap snapshot 1`] = `
         "height": "100%",
       }
     }
-  >
-    <div />
-  </div>
+  />
 </section>
 `;

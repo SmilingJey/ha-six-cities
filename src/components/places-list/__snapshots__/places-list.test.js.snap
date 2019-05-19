@@ -18,7 +18,9 @@ exports[`PlacesList snapshot 1`] = `
       <b
         className="places__found"
       >
-        312 places to stay in Amsterdam
+        2
+         places to stay in 
+        Amsterdam
       </b>
       <form
         action="#"
@@ -293,9 +295,7 @@ exports[`PlacesList snapshot 1`] = `
               "height": "100%",
             }
           }
-        >
-          <div />
-        </div>
+        />
       </section>
     </div>
   </div>

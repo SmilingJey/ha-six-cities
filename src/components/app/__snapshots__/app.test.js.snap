@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App snapshot 1`] = `
-<div>
+Array [
   <header
     className="header"
   >
@@ -53,9 +53,10 @@ exports[`App snapshot 1`] = `
         </nav>
       </div>
     </div>
-  </header>
+  </header>,
   <main
-    className="page__main page__main--index"
+    className="page__main page__main--index
+      "
   >
     <h1
       className="visually-hidden"
@@ -75,8 +76,10 @@ exports[`App snapshot 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              className="locations__item-link tabs__item
+              tabs__item--active"
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Paris
@@ -87,8 +90,10 @@ exports[`App snapshot 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              className="locations__item-link tabs__item
+              "
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Cologne
@@ -99,8 +104,10 @@ exports[`App snapshot 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              className="locations__item-link tabs__item
+              "
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Brussels
@@ -111,7 +118,10 @@ exports[`App snapshot 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item tabs__item--active"
+              className="locations__item-link tabs__item
+              "
+              href="#"
+              onClick={[Function]}
             >
               <span>
                 Amsterdam
@@ -122,8 +132,10 @@ exports[`App snapshot 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              className="locations__item-link tabs__item
+              "
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Hamburg
@@ -134,8 +146,10 @@ exports[`App snapshot 1`] = `
             className="locations__item"
           >
             <a
-              className="locations__item-link tabs__item"
+              className="locations__item-link tabs__item
+              "
               href="#"
+              onClick={[Function]}
             >
               <span>
                 Dusseldorf
@@ -162,7 +176,9 @@ exports[`App snapshot 1`] = `
           <b
             className="places__found"
           >
-            312 places to stay in Amsterdam
+            2
+             places to stay in 
+            Paris
           </b>
           <form
             action="#"
@@ -225,13 +241,6 @@ exports[`App snapshot 1`] = `
               className="cities__place-card place-card"
             >
               <div
-                className="place-card__mark"
-              >
-                <span>
-                  Premium
-                </span>
-              </div>
-              <div
                 className="cities__image-wrapper place-card__image-wrapper"
               >
                 <a
@@ -242,7 +251,7 @@ exports[`App snapshot 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/test-image1.jpg"
+                    src="img/apartment-03.jpg"
                     width="260"
                   />
                 </a>
@@ -260,7 +269,7 @@ exports[`App snapshot 1`] = `
                       className="place-card__price-value"
                     >
                       €
-                      111
+                      150
                     </b>
                     <span
                       className="place-card__price-text"
@@ -315,7 +324,7 @@ exports[`App snapshot 1`] = `
                     href="#"
                     onClick={[Function]}
                   >
-                    Test title 1
+                    Canal View Prinsengracht
                   </a>
                 </h2>
                 <p
@@ -339,7 +348,7 @@ exports[`App snapshot 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/test-image2.jpg"
+                    src="img/apartment-01.jpg"
                     width="260"
                   />
                 </a>
@@ -357,7 +366,7 @@ exports[`App snapshot 1`] = `
                       className="place-card__price-value"
                     >
                       €
-                      222
+                      100
                     </b>
                     <span
                       className="place-card__price-text"
@@ -412,13 +421,13 @@ exports[`App snapshot 1`] = `
                     href="#"
                     onClick={[Function]}
                   >
-                    Test title 2
+                    Nice, cozy, warm big bed apartment
                   </a>
                 </h2>
                 <p
                   className="place-card__type"
                 >
-                  Room
+                  Apartment
                 </p>
               </div>
             </article>
@@ -437,13 +446,11 @@ exports[`App snapshot 1`] = `
                   "height": "100%",
                 }
               }
-            >
-              <div />
-            </div>
+            />
           </section>
         </div>
       </div>
     </div>
-  </main>
-</div>
+  </main>,
+]
 `;
