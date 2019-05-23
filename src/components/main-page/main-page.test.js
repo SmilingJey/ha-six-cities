@@ -37,7 +37,9 @@ it(`MainPage snapshot`, () => {
     places={places}
     cities={cities}
     activeCity={cities[0]}
+    activePlace={null}
     onCityClick={jest.fn()}
+    onActivatePlace={jest.fn()}
   />).toJSON();
   expect(tree).toMatchSnapshot();
 });

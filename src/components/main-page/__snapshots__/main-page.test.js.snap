@@ -3,7 +3,7 @@
 exports[`MainPage snapshot 1`] = `
 <main
   className="page__main page__main--index
-      "
+    "
 >
   <h1
     className="visually-hidden"
