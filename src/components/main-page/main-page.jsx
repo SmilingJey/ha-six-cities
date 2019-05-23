@@ -5,6 +5,10 @@ import PlacesList from '../places-list/places-list.jsx';
 import CitiesList from '../cities-list/cities-list.jsx';
 import {ActionCreator} from "../../reducers/reducer";
 
+import withSortOpen from '../../hocs/with-sort-open/with-sort-open';
+
+const PlacesListWrapped = withSortOpen(PlacesList);
+
 const MainPage = (props) => {
   const {
     places,
@@ -27,7 +31,7 @@ const MainPage = (props) => {
           onCityClick(city);
         }}
       />
-      <PlacesList
+      <PlacesListWrapped
         places={places}
         city={activeCity}
         activePlace={activePlace}

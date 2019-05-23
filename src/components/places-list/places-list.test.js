@@ -39,6 +39,8 @@ it(`PlacesList snapshot`, () => {
     city={city}
     activePlace={null}
     onActivatePlace={jest.fn()}
+    isSortOpen={false}
+    onOpenSort={jest.fn()}
   />).toJSON();
   expect(tree).toMatchSnapshot();
 });
