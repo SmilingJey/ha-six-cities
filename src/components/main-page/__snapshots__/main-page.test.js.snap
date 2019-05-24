@@ -197,7 +197,7 @@ exports[`MainPage snapshot 1`] = `
                   <span
                     style={
                       Object {
-                        "width": "{props.place.rating}%",
+                        "width": "440%",
                       }
                     }
                   />
@@ -294,7 +294,7 @@ exports[`MainPage snapshot 1`] = `
                   <span
                     style={
                       Object {
-                        "width": "{props.place.rating}%",
+                        "width": "2000%",
                       }
                     }
                   />
