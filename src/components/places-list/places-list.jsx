@@ -16,10 +16,9 @@ const PlacesList = (props) => {
     onSortClick
   } = props;
 
-  let sortedPlaces = places;
-
+  let sortedPlaces = [...places];
   if (activeSorting.sortFunction) {
-    sortedPlaces = places.sort(activeSorting.sortFunction);
+    sortedPlaces = sortedPlaces.sort(activeSorting.sortFunction);
   }
 
   if (!sortedPlaces.length) {
