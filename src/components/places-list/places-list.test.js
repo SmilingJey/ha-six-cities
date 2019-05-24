@@ -31,6 +31,24 @@ const mock = {
   },
 };
 
+const mockSortings = [
+  {
+    name: `Popular`,
+    sortFunction: null,
+  },
+  {
+    name: `Price: low to high`,
+    sortFunction: (place1, place2) => place1.price - place2.price,
+  },
+  {
+    name: `Price: high to low`,
+    sortFunction: (place1, place2) => place2.price - place1.price,
+  },
+  {
+    name: `Top rated first`,
+    sortFunction: (place1, place2) => place2.rating - place1.rating,
+  },
+];
 
 it(`PlacesList snapshot`, () => {
   const {places, city} = mock;
@@ -41,6 +59,9 @@ it(`PlacesList snapshot`, () => {
     onActivatePlace={jest.fn()}
     isSortOpen={false}
     onOpenSort={jest.fn()}
+    activeSorting={mockSortings[0]}
+    sortings={mockSortings}
+    onSortClick={jest.fn()}
   />).toJSON();
   expect(tree).toMatchSnapshot();
 });

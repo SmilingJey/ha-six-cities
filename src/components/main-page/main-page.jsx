@@ -6,8 +6,10 @@ import CitiesList from '../cities-list/cities-list.jsx';
 import {ActionCreator} from "../../reducers/reducer";
 
 import withSortOpen from '../../hocs/with-sort-open/with-sort-open';
+import withPlacesSort from '../../hocs/with-places-sort/with-places-sort';
 
-const PlacesListWrapped = withSortOpen(PlacesList);
+
+const PlacesListWrapped = withPlacesSort(withSortOpen(PlacesList));
 
 const MainPage = (props) => {
   const {
