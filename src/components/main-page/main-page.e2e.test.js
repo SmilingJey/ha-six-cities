@@ -42,18 +42,42 @@ const mock = {
   ]
 };
 
-it(`When user click on image set activePlace state `, () => {
+it(`When user click on image invoke onActivatePlace `, () => {
   const {places, cities} = mock;
   const linkPrevention = jest.fn();
+  const onActivatePlace = jest.fn();
   const mainPage = mount(<MainPage
     places={places}
     cities={cities}
     activeCity={cities[0]}
     onCityClick={jest.fn()}
+    activePlace={null}
+    onActivatePlace={onActivatePlace}
   />);
 
   const cardImage = mainPage.find(`.place-card__image-wrapper a`).at(0);
   cardImage.simulate(`click`, {preventDefault: linkPrevention});
-  mainPage.update();
-  expect(mainPage.state(`activePlace`)).toEqual(places[0]);
+  expect(onActivatePlace).toHaveBeenCalledTimes(1);
+  expect(onActivatePlace).toHaveBeenCalledWith(places[0]);
+});
+
+it(`When user click on city invoke onCityClick and onActivatePlace with null`, () => {
+  const {places, cities} = mock;
+  const linkPrevention = jest.fn();
+  const onCityClick = jest.fn();
+  const onActivatePlace = jest.fn();
+  const mainPage = mount(<MainPage
+    places={places}
+    cities={cities}
+    activeCity={cities[0]}
+    onCityClick={onCityClick}
+    activePlace={null}
+    onActivatePlace={onActivatePlace}
+  />);
+
+  const cityLink = mainPage.find(`.locations__item a`).at(0);
+  cityLink.simulate(`click`, {preventDefault: linkPrevention});
+  expect(onCityClick).toHaveBeenCalledTimes(1);
+  expect(onActivatePlace).toHaveBeenCalledTimes(1);
+  expect(onActivatePlace).toHaveBeenCalledWith(null);
 });

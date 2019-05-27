@@ -1,58 +1,55 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import PlacesList from '../places-list/places-list.jsx';
 import CitiesList from '../cities-list/cities-list.jsx';
 import {ActionCreator} from "../../reducers/reducer";
 
-class MainPage extends PureComponent {
-  constructor(props) {
-    super(props);
+import withSortOpen from '../../hocs/with-sort-open/with-sort-open';
+import withPlacesSort from '../../hocs/with-places-sort/with-places-sort';
 
-    this.state = {
-      activePlace: null,
-    };
 
-    this._handleActivatePlace = this._handleActivatePlace.bind(this);
-  }
+const PlacesListWrapped = withPlacesSort(withSortOpen(PlacesList));
 
-  render() {
-    const {places, cities, activeCity, onCityClick} = this.props;
+const MainPage = (props) => {
+  const {
+    places,
+    cities,
+    activeCity,
+    activePlace,
+    onCityClick,
+    onActivatePlace,
+  } = props;
 
-    return <React.Fragment>
-      <main className={`page__main page__main--index
-      ${!places.length ? `page__main--index-empty` : ``}`}>
-        <h1 className="visually-hidden">Cities</h1>
-        <CitiesList
-          cities={cities}
-          activeCity={activeCity}
-          onCityClick={(city) => {
-            this.setState({
-              activePlace: null,
-            });
-            onCityClick(city);
-          }}
-        />
-        <PlacesList
-          places={places}
-          city={activeCity}
-          activePlace={this.state.activePlace}
-          onActivatePlace={this._handleActivatePlace}
-        />
-      </main>
-    </React.Fragment>;
-  }
-
-  _handleActivatePlace(place) {
-    this.setState({activePlace: place});
-  }
-}
+  return <React.Fragment>
+    <main className={`page__main page__main--index
+    ${!places.length ? `page__main--index-empty` : ``}`}>
+      <h1 className="visually-hidden">Cities</h1>
+      <CitiesList
+        cities={cities}
+        activeCity={activeCity}
+        onCityClick={(city) => {
+          onActivatePlace(null);
+          onCityClick(city);
+        }}
+      />
+      <PlacesListWrapped
+        places={places}
+        city={activeCity}
+        activePlace={activePlace}
+        onActivatePlace={onActivatePlace}
+      />
+    </main>
+  </React.Fragment>;
+};
 
 MainPage.propTypes = {
   places: PropTypes.array.isRequired,
   cities: PropTypes.array.isRequired,
   activeCity: PropTypes.object.isRequired,
+  activePlace: PropTypes.object,
   onCityClick: PropTypes.func.isRequired,
+  onActivatePlace: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {

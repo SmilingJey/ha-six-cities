@@ -30,7 +30,7 @@ exports[`PlacesList snapshot 1`] = `
         <span
           className="places__sorting-caption"
         >
-          Sort by
+          Sort by 
         </span>
         <span
           className="places__sorting-type"
@@ -48,28 +48,33 @@ exports[`PlacesList snapshot 1`] = `
           </svg>
         </span>
         <ul
-          className="places__options places__options--custom places__options--opened"
+          className="places__options places__options--custom
+          "
         >
           <li
             className="places__option places__option--active"
+            onClick={[Function]}
             tabIndex="0"
           >
             Popular
           </li>
           <li
-            className="places__option"
+            className="places__option "
+            onClick={[Function]}
             tabIndex="0"
           >
             Price: low to high
           </li>
           <li
-            className="places__option"
+            className="places__option "
+            onClick={[Function]}
             tabIndex="0"
           >
             Price: high to low
           </li>
           <li
-            className="places__option"
+            className="places__option "
+            onClick={[Function]}
             tabIndex="0"
           >
             Top rated first
@@ -155,7 +160,7 @@ exports[`PlacesList snapshot 1`] = `
                 <span
                   style={
                     Object {
-                      "width": "{props.place.rating}%",
+                      "width": "440%",
                     }
                   }
                 />
@@ -252,7 +257,7 @@ exports[`PlacesList snapshot 1`] = `
                 <span
                   style={
                     Object {
-                      "width": "{props.place.rating}%",
+                      "width": "2000%",
                     }
                   }
                 />
