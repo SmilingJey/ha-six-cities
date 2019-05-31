@@ -1,27 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import CitiesList from './cities-list.jsx';
-
-const mockCities = [
-  {
-    name: `City1`
-  },
-  {
-    name: `City2`
-  },
-  {
-    name: `City3`
-  },
-  {
-    name: `City4`
-  },
-  {
-    name: `City5`
-  },
-  {
-    name: `City6`
-  },
-];
+import mockCities from '../../mocks/mock-cities.js';
 
 it(`CitiesList snapshot`, () => {
   const tree = renderer.create(<CitiesList

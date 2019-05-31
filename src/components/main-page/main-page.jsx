@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import PlacesList from '../places-list/places-list.jsx';
 import CitiesList from '../cities-list/cities-list.jsx';
-import {ActionCreator} from "../../reducers/reducer";
+import {ActionCreator as ActiveCityActionCreator} from "../../reducers/active-city/active-city";
 
 import withSortOpen from '../../hocs/with-sort-open/with-sort-open';
 import withPlacesSort from '../../hocs/with-places-sort/with-places-sort';
 
+import {getActiveCityOffers, getCities} from '../../reducers/data/selectors';
+import {getActiveCity} from '../../reducers/active-city/selectors';
 
 const PlacesListWrapped = withPlacesSort(withSortOpen(PlacesList));
 
@@ -16,9 +18,9 @@ const MainPage = (props) => {
     places,
     cities,
     activeCity,
-    activePlace,
     onCityClick,
-    onActivatePlace,
+    activePlace,
+    onActivatePlace
   } = props;
 
   return <React.Fragment>
@@ -36,6 +38,7 @@ const MainPage = (props) => {
       <PlacesListWrapped
         places={places}
         city={activeCity}
+        key={activeCity.name}
         activePlace={activePlace}
         onActivatePlace={onActivatePlace}
       />
@@ -47,19 +50,19 @@ MainPage.propTypes = {
   places: PropTypes.array.isRequired,
   cities: PropTypes.array.isRequired,
   activeCity: PropTypes.object.isRequired,
-  activePlace: PropTypes.object,
   onCityClick: PropTypes.func.isRequired,
+  activePlace: PropTypes.object,
   onActivatePlace: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  activeCity: state.activeCity,
-  places: state.places.filter(((place) => place.city === state.activeCity.name)),
-  cities: state.cities,
+  activeCity: getActiveCity(state),
+  places: getActiveCityOffers(state),
+  cities: getCities(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCityClick: (city) => dispatch(ActionCreator.setActiveCity(city))
+  onCityClick: (city) => dispatch(ActiveCityActionCreator.setActiveCity(city))
 });
 
 export {MainPage};

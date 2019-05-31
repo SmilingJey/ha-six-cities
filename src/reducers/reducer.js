@@ -1,30 +1,10 @@
-import cities from '../mocks/cities.js';
-import places from '../mocks/offers.js';
+import {combineReducers} from "redux";
+import {reducer as activeCity} from "./active-city/active-city";
+import {reducer as data} from "./data/data";
 
-const initialState = {
-  cities,
-  places,
-  activeCity: cities[0],
-};
+import NameSpace from "./name-spaces";
 
-const ActionCreator = {
-  setActiveCity: (city) => ({
-    type: `SET_ACTIVE_CITY`,
-    payload: city,
-  })
-
-};
-
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case `SET_ACTIVE_CITY`: return Object.assign({}, state, {
-      activeCity: Object.assign({}, action.payload),
-    });
-  }
-  return state;
-};
-
-export {
-  ActionCreator,
-  reducer,
-};
+export default combineReducers({
+  [NameSpace.ACTIVE_CITY]: activeCity,
+  [NameSpace.DATA]: data,
+});

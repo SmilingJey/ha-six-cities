@@ -2,20 +2,9 @@ import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import CitiesList from './cities-list.jsx';
+import mockCities from '../../mocks/mock-cities.js';
 
 configure({adapter: new Adapter()});
-
-const mockCities = [
-  {
-    name: `City1`
-  },
-  {
-    name: `City2`
-  },
-  {
-    name: `City3`
-  },
-];
 
 it(`When user click on city invoked onCityClick`, () => {
   const onCityClick = jest.fn();

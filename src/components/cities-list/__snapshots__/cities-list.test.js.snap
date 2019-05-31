@@ -20,7 +20,7 @@ exports[`CitiesList snapshot 1`] = `
           onClick={[Function]}
         >
           <span>
-            City1
+            City name 1
           </span>
         </a>
       </li>
@@ -34,63 +34,7 @@ exports[`CitiesList snapshot 1`] = `
           onClick={[Function]}
         >
           <span>
-            City2
-          </span>
-        </a>
-      </li>
-      <li
-        className="locations__item"
-      >
-        <a
-          className="locations__item-link tabs__item
-              "
-          href="#"
-          onClick={[Function]}
-        >
-          <span>
-            City3
-          </span>
-        </a>
-      </li>
-      <li
-        className="locations__item"
-      >
-        <a
-          className="locations__item-link tabs__item
-              "
-          href="#"
-          onClick={[Function]}
-        >
-          <span>
-            City4
-          </span>
-        </a>
-      </li>
-      <li
-        className="locations__item"
-      >
-        <a
-          className="locations__item-link tabs__item
-              "
-          href="#"
-          onClick={[Function]}
-        >
-          <span>
-            City5
-          </span>
-        </a>
-      </li>
-      <li
-        className="locations__item"
-      >
-        <a
-          className="locations__item-link tabs__item
-              "
-          href="#"
-          onClick={[Function]}
-        >
-          <span>
-            City6
+            City name 2
           </span>
         </a>
       </li>

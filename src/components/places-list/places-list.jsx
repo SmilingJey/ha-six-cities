@@ -88,7 +88,7 @@ PlacesList.propTypes = {
   places: PropTypes.array.isRequired,
   city: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    coordinates: PropTypes.array.isRequired,
+    location: PropTypes.object.isRequired,
   }).isRequired,
   activePlace: PropTypes.object,
   onActivatePlace: PropTypes.func.isRequired,
