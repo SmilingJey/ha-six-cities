@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
+import {compose} from 'recompose';
+
 import PlacesList from '../places-list/places-list.jsx';
 import CitiesList from '../cities-list/cities-list.jsx';
-import {ActionCreator as ActiveCityActionCreator} from "../../reducers/active-city/active-city";
+import {ActionCreator as ActiveCityActionCreator} from '../../reducers/active-city/active-city';
 
 import withSortOpen from '../../hocs/with-sort-open/with-sort-open';
 import withPlacesSort from '../../hocs/with-places-sort/with-places-sort';
+import withActivePlace from '../../hocs/with-active-place/with-active-place';
 
 import {getActiveCityOffers, getCities} from '../../reducers/data/selectors';
 import {getActiveCity} from '../../reducers/active-city/selectors';
@@ -66,4 +69,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {MainPage};
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withActivePlace
+)(MainPage);
+
