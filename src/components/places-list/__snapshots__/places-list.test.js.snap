@@ -20,7 +20,7 @@ exports[`PlacesList snapshot 1`] = `
       >
         2
          places to stay in 
-        Amsterdam
+        City name 1
       </b>
       <form
         action="#"
@@ -34,6 +34,7 @@ exports[`PlacesList snapshot 1`] = `
         </span>
         <span
           className="places__sorting-type"
+          onClick={[MockFunction]}
           tabIndex="0"
         >
           Popular
@@ -50,6 +51,7 @@ exports[`PlacesList snapshot 1`] = `
         <ul
           className="places__options places__options--custom
           "
+          onClick={[MockFunction]}
         >
           <li
             className="places__option places__option--active"
@@ -105,7 +107,7 @@ exports[`PlacesList snapshot 1`] = `
                 alt="Place image"
                 className="place-card__image"
                 height="200"
-                src="img/test-image1.jpg"
+                src=""
                 width="260"
               />
             </a>
@@ -202,7 +204,7 @@ exports[`PlacesList snapshot 1`] = `
                 alt="Place image"
                 className="place-card__image"
                 height="200"
-                src="img/test-image2.jpg"
+                src=""
                 width="260"
               />
             </a>

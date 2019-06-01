@@ -22,7 +22,7 @@ exports[`PlaceCard snapshot 1`] = `
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/test-image.jpg"
+        src=""
         width="260"
       />
     </a>
@@ -95,7 +95,7 @@ exports[`PlaceCard snapshot 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Test title
+        Test title 1
       </a>
     </h2>
     <p

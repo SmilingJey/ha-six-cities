@@ -1,16 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app.jsx';
-import {createStore} from 'redux';
-import {reducer} from './reducers/reducer';
+import {createStore, applyMiddleware} from 'redux';
+import reducer from './reducers/reducer';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import {compose} from 'recompose';
+
+import {createAPI} from './api';
+import {loadOffers} from './reducers/data/data';
 
 const init = () => {
+  const api = createAPI((...args) => store.dispatch(...args));
+
   const store = createStore(
       reducer,
-      window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      window.__REDUX_DEVTOOLS_EXTENSION__()
+      compose(
+          applyMiddleware(thunk.withExtraArgument(api)),
+          window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__()
+      )
   );
+
+  store.dispatch(loadOffers);
 
   ReactDOM.render(
       <Provider store={store}>

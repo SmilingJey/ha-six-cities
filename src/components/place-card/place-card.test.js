@@ -1,18 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import PlaceCard from './place-card.jsx';
-
-const mockPlace = {
-  id: 999,
-  isPremium: true,
-  picture: `test-image.jpg`,
-  price: 111,
-  rating: 22,
-  title: `Test title`,
-  type: `Apartment`,
-};
+import mockPlaces from '../../mocks/mock-offers.js';
 
 it(`PlaceCard snapshot`, () => {
-  const tree = renderer.create(<PlaceCard place={mockPlace} />).toJSON();
+  const tree = renderer.create(<PlaceCard place={mockPlaces[0]} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -21,47 +21,34 @@ class CityMap extends PureComponent {
   }
 
   componentDidMount() {
-    const {city, places} = this.props;
+    const {city, places, activePlace} = this.props;
 
     setTimeout(() => {
-      const zoom = 12;
-
       this.map = leaflet.map(`map`, {
-        center: city.coordinates,
-        [`zoom`]: zoom,
         zoomControl: false,
         marker: true
       });
-      this.map.setView(city.coordinates, zoom);
 
       leaflet.tileLayer(
           `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`,
           {
             attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> 
-            contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
+              contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
           }
       ).addTo(this.map);
 
       this.markersLayer = leaflet.layerGroup().addTo(this.map);
-      for (const place of places) {
-        leaflet.marker(place.coordinates, {icon: markerIcon}).addTo(this.markersLayer);
-      }
+      this._setMapCenter(city, activePlace);
+      this._addPlacesToMarkersLayer(places, activePlace);
     }, 10);
   }
 
   componentDidUpdate() {
     if (this.map && this.markersLayer) {
       const {city, places, activePlace} = this.props;
-
-      const center = activePlace ? activePlace.coordinates : city.coordinates;
-      this.map.panTo(center);
-
+      this._setMapCenter(city, activePlace);
       this.markersLayer.clearLayers();
-      for (const place of places) {
-        const icon = (activePlace && activePlace.id === place.id) ?
-          activeMarkerIcon : markerIcon;
-        leaflet.marker(place.coordinates, {icon}).addTo(this.markersLayer);
-      }
+      this._addPlacesToMarkersLayer(places, activePlace);
     }
   }
 
@@ -69,18 +56,46 @@ class CityMap extends PureComponent {
     this.map.remove();
     this.map = null;
   }
+
+  _addPlacesToMarkersLayer(places, activePlace) {
+    for (const place of places) {
+      const icon = (activePlace && activePlace.id === place.id) ?
+        activeMarkerIcon : markerIcon;
+      const location = [place.location.latitude, place.location.longitude];
+      leaflet.marker(location, {icon}).addTo(this.markersLayer);
+    }
+  }
+
+  _setMapCenter(city, activePlace) {
+    const location = activePlace ? activePlace.location : city.location;
+    this.map.setView([location.latitude, location.longitude], location.zoom);
+  }
 }
 
 CityMap.propTypes = {
   places: PropTypes.arrayOf(
       PropTypes.shape({
-        coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-      })
+        location: PropTypes.shape({
+          latitude: PropTypes.number.isRequired,
+          longitude: PropTypes.number.isRequired,
+          zoom: PropTypes.number.isRequired,
+        })
+      }).isRequired
   ).isRequired,
   city: PropTypes.shape({
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired,
+    })
+  }).isRequired,
+  activePlace: PropTypes.shape({
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired,
+    })
   }),
-  activePlace: PropTypes.object,
 };
 
 export default CityMap;

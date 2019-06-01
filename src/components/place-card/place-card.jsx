@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 const PlaceCard = (props) => {
   const {place, onActivate, onTitleClick} = props;
+
   return <article className="cities__place-card place-card">
     {place.isPremium && (<div className="place-card__mark">
       <span>Premium</span>
@@ -12,8 +13,8 @@ const PlaceCard = (props) => {
         evt.preventDefault();
         onActivate(place);
       }}>
-        <img className="place-card__image" src={`img/` + place.picture} width="260" height="200"
-          alt="Place image" />
+        <img className="place-card__image" src={place.previewImage}
+          width="260" height="200" alt="Place image" />
       </a>
     </div>
     <div className="place-card__info">
@@ -50,11 +51,11 @@ PlaceCard.propTypes = {
   place: PropTypes.shape({
     id: PropTypes.number.isRequired,
     isPremium: PropTypes.bool.isRequired,
-    picture: PropTypes.string.isRequired,
+    previewImage: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    type: PropTypes.oneOf([`Apartment`, `Room`, `House`, `Hotel`]).isRequired,
+    type: PropTypes.string.isRequired,
   }).isRequired,
   onActivate: PropTypes.func,
   onTitleClick: PropTypes.func

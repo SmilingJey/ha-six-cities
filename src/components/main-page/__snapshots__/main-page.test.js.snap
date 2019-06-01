@@ -29,7 +29,21 @@ exports[`MainPage snapshot 1`] = `
             onClick={[Function]}
           >
             <span>
-              Amsterdam
+              City name 1
+            </span>
+          </a>
+        </li>
+        <li
+          className="locations__item"
+        >
+          <a
+            className="locations__item-link tabs__item
+              "
+            href="#"
+            onClick={[Function]}
+          >
+            <span>
+              City name 2
             </span>
           </a>
         </li>
@@ -55,7 +69,7 @@ exports[`MainPage snapshot 1`] = `
         >
           2
            places to stay in 
-          Amsterdam
+          City name 1
         </b>
         <form
           action="#"
@@ -142,7 +156,7 @@ exports[`MainPage snapshot 1`] = `
                   alt="Place image"
                   className="place-card__image"
                   height="200"
-                  src="img/test-image1.jpg"
+                  src=""
                   width="260"
                 />
               </a>
@@ -239,7 +253,7 @@ exports[`MainPage snapshot 1`] = `
                   alt="Place image"
                   className="place-card__image"
                   height="200"
-                  src="img/test-image2.jpg"
+                  src=""
                   width="260"
                 />
               </a>
