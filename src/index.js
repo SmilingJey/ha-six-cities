@@ -13,14 +13,19 @@ import {loadOffers} from './reducers/data/data';
 const init = () => {
   const api = createAPI(() => history.pushState(null, null, `/login`));
 
-  const store = createStore(
-      reducer,
-      compose(
-          applyMiddleware(thunk.withExtraArgument(api)),
-          window.__REDUX_DEVTOOLS_EXTENSION__ &&
-          window.__REDUX_DEVTOOLS_EXTENSION__()
-      )
-  );
+  let store;
+
+  if (window.__REDUX_DEVTOOLS_EXTENSION__) {
+    store = createStore(
+        reducer,
+        compose(
+            applyMiddleware(thunk.withExtraArgument(api)),
+            window.__REDUX_DEVTOOLS_EXTENSION__()
+        )
+    );
+  } else {
+    store = createStore(reducer, applyMiddleware(thunk.withExtraArgument(api)));
+  }
 
   store.dispatch(loadOffers);
 
