@@ -1,20 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 import MainPage from '../main-page/main-page.jsx';
+import SignInPage from '../sign-in-page/sign-in-page.jsx';
 import Header from '../header/header.jsx';
 import Spinner from '../spinner/spinner.jsx';
 import {getIsLoaded} from "../../reducers/data/selectors";
-import withActivePlace from "../../hocs/with-active-place/with-active-place";
-
-const MainPageWrapped = withActivePlace(MainPage);
 
 const App = (props) => {
   const {isLoaded} = props;
+
   return <React.Fragment>
-    <Header />
-    {isLoaded ? <MainPageWrapped /> : <Spinner />}
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route path="/" exact render={() => isLoaded ? <MainPage /> : <Spinner />}/>
+        <Route path="/login" component={SignInPage} />
+      </Switch>
+    </BrowserRouter>;
+    {}
   </React.Fragment>;
 };
 
