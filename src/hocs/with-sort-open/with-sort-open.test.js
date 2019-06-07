@@ -1,17 +1,11 @@
-import React from "react";
-import {configure, shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import withSortOpen from "./with-sort-open";
-
-configure({adapter: new Adapter()});
+import React from 'react';
+import renderer from 'react-test-renderer';
+import withSortOpen from './with-sort-open';
 
 const MockComponent = () => <div />;
 const MockComponentWrapped = withSortOpen(MockComponent);
 
-it(`Should change isSortOpen state when call onOpenSortClick`, () => {
-  const wrapper = shallow(<MockComponentWrapped />);
-  wrapper.props().onOpenSortClick();
-  expect(wrapper.state().isSortOpen).toEqual(true);
-  wrapper.props().onOpenSortClick();
-  expect(wrapper.state().isSortOpen).toEqual(false);
+it(`withSortOpen snapshot`, () => {
+  const tree = renderer.create(<MockComponentWrapped />).toJSON();
+  expect(tree).toMatchSnapshot();
 });

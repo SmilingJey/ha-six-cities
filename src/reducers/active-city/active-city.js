@@ -11,7 +11,6 @@ const ActionCreator = {
     type: ActionType.SET_ACTIVE_CITY,
     payload: city,
   })
-
 };
 
 const reducer = (state = initialState, action) => {

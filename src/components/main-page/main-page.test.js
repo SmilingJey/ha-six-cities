@@ -1,17 +1,23 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import {MainPage} from './main-page.jsx';
 import mockPlaces from '../../mocks/mock-offers.js';
 import mockCities from '../../mocks/mock-cities.js';
 
+jest.mock(`../../utils/set-body-root-class`);
+
 it(`MainPage snapshot`, () => {
-  const tree = renderer.create(<MainPage
+  const renderer = new ShallowRenderer();
+  const result = renderer.render(<MainPage
     places={mockPlaces}
     cities={mockCities}
     activeCity={mockCities[0]}
     activePlace={null}
+    isLoaded={true}
+    loadingError={null}
+    load={jest.fn()}
     onCityClick={jest.fn()}
     onActivatePlace={jest.fn()}
-  />).toJSON();
-  expect(tree).toMatchSnapshot();
+  />);
+  expect(result).toMatchSnapshot();
 });

@@ -8,13 +8,12 @@ import thunk from 'redux-thunk';
 import {compose} from 'recompose';
 
 import {createAPI} from './api';
-import {loadOffers} from './reducers/data/data';
+import {loadAuthorizationData} from './reducers/user/user';
 
 const init = () => {
-  const api = createAPI(() => history.pushState(null, null, `/login`));
+  const api = createAPI();
 
   let store;
-
   if (window.__REDUX_DEVTOOLS_EXTENSION__) {
     store = createStore(
         reducer,
@@ -27,7 +26,7 @@ const init = () => {
     store = createStore(reducer, applyMiddleware(thunk.withExtraArgument(api)));
   }
 
-  store.dispatch(loadOffers);
+  store.dispatch(loadAuthorizationData);
 
   ReactDOM.render(
       <Provider store={store}>

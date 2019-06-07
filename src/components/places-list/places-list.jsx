@@ -65,20 +65,21 @@ const PlacesList = (props) => {
           </ul>
         </form>
         <div className="cities__places-list places__list tabs__content">
-          {sortedPlaces.map((place, index) => <PlaceCard
-            key={index}
+          {sortedPlaces.map((place) => <PlaceCard
+            key={place.id}
             place={place}
             onActivate={onActivatePlace}
-            onTitleClick={() => {}}
           />)}
         </div>
       </section>
       <div className="cities__right-section">
-        <CityMap
-          city={city}
-          places={sortedPlaces}
-          activePlace={activePlace}
-        />
+        <section className="cities__map">
+          <CityMap
+            city={city}
+            places={sortedPlaces}
+            activePlace={activePlace}
+          />
+        </section>
       </div>
     </div>
   </div>;
@@ -91,9 +92,7 @@ PlacesList.propTypes = {
     location: PropTypes.object.isRequired,
   }).isRequired,
   activePlace: PropTypes.object,
-  onActivatePlace: PropTypes.func.isRequired,
   isSortOpen: PropTypes.bool.isRequired,
-  onOpenSortClick: PropTypes.func.isRequired,
   activeSorting: PropTypes.shape({
     name: PropTypes.string.isRequired,
     sortFunction: PropTypes.func,
@@ -102,6 +101,8 @@ PlacesList.propTypes = {
     name: PropTypes.string.isRequired,
     sortFunction: PropTypes.func,
   }).isRequired).isRequired,
+  onActivatePlace: PropTypes.func.isRequired,
+  onOpenSortClick: PropTypes.func.isRequired,
   onSortClick: PropTypes.func.isRequired,
 };
 

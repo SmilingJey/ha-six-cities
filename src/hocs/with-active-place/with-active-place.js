@@ -7,7 +7,7 @@ const withActivePlace = (Component) => {
       this.state = {
         activePlace: null,
       };
-      this.handlerActivatePlace = this.handlerActivatePlace.bind(this);
+      this._handlerActivatePlace = this._handlerActivatePlace.bind(this);
     }
 
     render() {
@@ -15,11 +15,11 @@ const withActivePlace = (Component) => {
       return <Component
         {...this.props}
         activePlace={activePlace}
-        onActivatePlace={this.handlerActivatePlace}
+        onActivatePlace={this._handlerActivatePlace}
       />;
     }
 
-    handlerActivatePlace(activePlace) {
+    _handlerActivatePlace(activePlace) {
       this.setState({activePlace});
     }
   }
