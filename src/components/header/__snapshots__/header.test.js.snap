@@ -15,12 +15,14 @@ exports[`Header snapshot 1`] = `
       >
         <a
           className="header__logo-link header__logo-link--active"
+          href="/"
+          onClick={[Function]}
         >
           <img
             alt="6 cities logo"
             className="header__logo"
             height="41"
-            src="img/logo.svg"
+            src="/img/logo.svg"
             width="81"
           />
         </a>
@@ -36,16 +38,31 @@ exports[`Header snapshot 1`] = `
           >
             <a
               className="header__nav-link header__nav-link--profile"
-              href="/login"
+              href="/favorites"
               onClick={[Function]}
             >
               <div
                 className="header__avatar-wrapper user__avatar-wrapper"
               />
               <span
-                className="header__login"
+                className="header__user-name user__name"
               >
-                Sign in
+                some@email.com
+              </span>
+            </a>
+          </li>
+          <li
+            className="header__nav-item logout"
+          >
+            <a
+              className="header__nav-link header__nav-link--profile"
+              href="#"
+              onClick={[Function]}
+            >
+              <span
+                className="header__user-name"
+              >
+                Logout
               </span>
             </a>
           </li>

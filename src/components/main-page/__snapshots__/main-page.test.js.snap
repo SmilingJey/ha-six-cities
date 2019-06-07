@@ -1,360 +1,157 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MainPage snapshot 1`] = `
-<main
-  className="page__main page__main--index
-    "
->
-  <h1
-    className="visually-hidden"
+<React.Fragment>
+  <main
+    className="page__main page__main--index
+      "
   >
-    Cities
-  </h1>
-  <div
-    className="cities tabs"
-  >
-    <section
-      className="locations container"
+    <h1
+      className="visually-hidden"
     >
-      <ul
-        className="locations__list tabs__list"
-      >
-        <li
-          className="locations__item"
-        >
-          <a
-            className="locations__item-link tabs__item
-              tabs__item--active"
-            href="#"
-            onClick={[Function]}
-          >
-            <span>
-              City name 1
-            </span>
-          </a>
-        </li>
-        <li
-          className="locations__item"
-        >
-          <a
-            className="locations__item-link tabs__item
-              "
-            href="#"
-            onClick={[Function]}
-          >
-            <span>
-              City name 2
-            </span>
-          </a>
-        </li>
-      </ul>
-    </section>
-  </div>
-  <div
-    className="cities__places-wrapper"
-  >
-    <div
-      className="cities__places-container container"
-    >
-      <section
-        className="cities__places places"
-      >
-        <h2
-          className="visually-hidden"
-        >
-          Places
-        </h2>
-        <b
-          className="places__found"
-        >
-          2
-           places to stay in 
-          City name 1
-        </b>
-        <form
-          action="#"
-          className="places__sorting"
-          method="get"
-        >
-          <span
-            className="places__sorting-caption"
-          >
-            Sort by 
-          </span>
-          <span
-            className="places__sorting-type"
-            onClick={[Function]}
-            tabIndex="0"
-          >
-            Popular
-            <svg
-              className="places__sorting-arrow"
-              height="4"
-              width="7"
-            >
-              <use
-                xlinkHref="#icon-arrow-select"
-              />
-            </svg>
-          </span>
-          <ul
-            className="places__options places__options--custom
-          "
-            onClick={[Function]}
-          >
-            <li
-              className="places__option places__option--active"
-              onClick={[Function]}
-              tabIndex="0"
-            >
-              Popular
-            </li>
-            <li
-              className="places__option "
-              onClick={[Function]}
-              tabIndex="0"
-            >
-              Price: low to high
-            </li>
-            <li
-              className="places__option "
-              onClick={[Function]}
-              tabIndex="0"
-            >
-              Price: high to low
-            </li>
-            <li
-              className="places__option "
-              onClick={[Function]}
-              tabIndex="0"
-            >
-              Top rated first
-            </li>
-          </ul>
-        </form>
-        <div
-          className="cities__places-list places__list tabs__content"
-        >
-          <article
-            className="cities__place-card place-card"
-          >
-            <div
-              className="place-card__mark"
-            >
-              <span>
-                Premium
-              </span>
-            </div>
-            <div
-              className="cities__image-wrapper place-card__image-wrapper"
-            >
-              <a
-                href="#"
-                onClick={[Function]}
-              >
-                <img
-                  alt="Place image"
-                  className="place-card__image"
-                  height="200"
-                  src=""
-                  width="260"
-                />
-              </a>
-            </div>
-            <div
-              className="place-card__info"
-            >
-              <div
-                className="place-card__price-wrapper"
-              >
-                <div
-                  className="place-card__price"
-                >
-                  <b
-                    className="place-card__price-value"
-                  >
-                    €
-                    111
-                  </b>
-                  <span
-                    className="place-card__price-text"
-                  >
-                    / night
-                  </span>
-                </div>
-                <button
-                  className="place-card__bookmark-button button"
-                  type="button"
-                >
-                  <svg
-                    className="place-card__bookmark-icon"
-                    height="19"
-                    width="18"
-                  >
-                    <use
-                      xlinkHref="#icon-bookmark"
-                    />
-                  </svg>
-                  <span
-                    className="visually-hidden"
-                  >
-                    To bookmarks
-                  </span>
-                </button>
-              </div>
-              <div
-                className="place-card__rating rating"
-              >
-                <div
-                  className="place-card__stars rating__stars"
-                >
-                  <span
-                    style={
-                      Object {
-                        "width": "440%",
-                      }
-                    }
-                  />
-                  <span
-                    className="visually-hidden"
-                  >
-                    Rating
-                  </span>
-                </div>
-              </div>
-              <h2
-                className="place-card__name"
-              >
-                <a
-                  href="#"
-                  onClick={[Function]}
-                >
-                  Test title 1
-                </a>
-              </h2>
-              <p
-                className="place-card__type"
-              >
-                Apartment
-              </p>
-            </div>
-          </article>
-          <article
-            className="cities__place-card place-card"
-          >
-            <div
-              className="cities__image-wrapper place-card__image-wrapper"
-            >
-              <a
-                href="#"
-                onClick={[Function]}
-              >
-                <img
-                  alt="Place image"
-                  className="place-card__image"
-                  height="200"
-                  src=""
-                  width="260"
-                />
-              </a>
-            </div>
-            <div
-              className="place-card__info"
-            >
-              <div
-                className="place-card__price-wrapper"
-              >
-                <div
-                  className="place-card__price"
-                >
-                  <b
-                    className="place-card__price-value"
-                  >
-                    €
-                    222
-                  </b>
-                  <span
-                    className="place-card__price-text"
-                  >
-                    / night
-                  </span>
-                </div>
-                <button
-                  className="place-card__bookmark-button button"
-                  type="button"
-                >
-                  <svg
-                    className="place-card__bookmark-icon"
-                    height="19"
-                    width="18"
-                  >
-                    <use
-                      xlinkHref="#icon-bookmark"
-                    />
-                  </svg>
-                  <span
-                    className="visually-hidden"
-                  >
-                    To bookmarks
-                  </span>
-                </button>
-              </div>
-              <div
-                className="place-card__rating rating"
-              >
-                <div
-                  className="place-card__stars rating__stars"
-                >
-                  <span
-                    style={
-                      Object {
-                        "width": "2000%",
-                      }
-                    }
-                  />
-                  <span
-                    className="visually-hidden"
-                  >
-                    Rating
-                  </span>
-                </div>
-              </div>
-              <h2
-                className="place-card__name"
-              >
-                <a
-                  href="#"
-                  onClick={[Function]}
-                >
-                  Test title 2
-                </a>
-              </h2>
-              <p
-                className="place-card__type"
-              >
-                Room
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-      <div
-        className="cities__right-section"
-      >
-        <section
-          className="cities__map"
-        >
-          <div
-            id="map"
-            style={
-              Object {
-                "height": "100%",
-              }
-            }
-          />
-        </section>
-      </div>
-    </div>
-  </div>
-</main>
+      Cities
+    </h1>
+    <CitiesList
+      activeCity={
+        Object {
+          "location": Object {
+            "latitude": 1,
+            "longitude": 2,
+            "zoom": 13,
+          },
+          "name": "City name 1",
+        }
+      }
+      cities={
+        Array [
+          Object {
+            "location": Object {
+              "latitude": 1,
+              "longitude": 2,
+              "zoom": 13,
+            },
+            "name": "City name 1",
+          },
+          Object {
+            "location": Object {
+              "latitude": 2,
+              "longitude": 3,
+              "zoom": 13,
+            },
+            "name": "City name 2",
+          },
+        ]
+      }
+      onCityClick={[Function]}
+    />
+    <WithPlacesSort
+      activePlace={null}
+      city={
+        Object {
+          "location": Object {
+            "latitude": 1,
+            "longitude": 2,
+            "zoom": 13,
+          },
+          "name": "City name 1",
+        }
+      }
+      onActivatePlace={[MockFunction]}
+      places={
+        Array [
+          Object {
+            "bedrooms": 2,
+            "city": Object {
+              "location": Object {
+                "latitude": 1,
+                "longitude": 2,
+                "zoom": 13,
+              },
+              "name": "City name 1",
+            },
+            "description": "text",
+            "goods": Array [
+              "one",
+              "two",
+              "tree",
+            ],
+            "host": Object {
+              "avatarUrl": "url",
+              "id": 1,
+              "isPro": true,
+              "name": "name",
+            },
+            "id": 999,
+            "images": Array [
+              "url1",
+              "url2",
+              "url3",
+            ],
+            "isFavorite": true,
+            "isPremium": true,
+            "location": Object {
+              "latitude": 1,
+              "longitude": 2,
+              "zoom": 13,
+            },
+            "maxAdults": 2,
+            "picture": "test-image1.jpg",
+            "previewImage": "",
+            "price": 111,
+            "rating": 22,
+            "title": "Test title 1",
+            "type": "apartment",
+          },
+          Object {
+            "bedrooms": 3,
+            "city": Object {
+              "location": Object {
+                "latitude": 1,
+                "longitude": 2,
+                "zoom": 13,
+              },
+              "name": "City name 2",
+            },
+            "coordinates": Array [
+              52.3909553943508,
+              4.85309666406198,
+            ],
+            "description": "text",
+            "goods": Array [
+              "one",
+              "two",
+              "tree",
+            ],
+            "host": Object {
+              "avatarUrl": "url",
+              "id": 1,
+              "isPro": true,
+              "name": "name",
+            },
+            "id": 222,
+            "images": Array [
+              "url1",
+              "url2",
+              "url3",
+            ],
+            "isFavorite": true,
+            "isPremium": false,
+            "location": Object {
+              "latitude": 1,
+              "longitude": 2,
+              "zoom": 13,
+            },
+            "maxAdults": 1,
+            "picture": "test-image2.jpg",
+            "previewImage": "",
+            "price": 222,
+            "rating": 100,
+            "title": "Test title 2",
+            "type": "house",
+          },
+        ]
+      }
+    />
+  </main>
+</React.Fragment>
 `;

@@ -1,14 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import {App} from './app.jsx';
-import {createStore} from 'redux';
-import reducer from '../../reducers/reducer';
-import {Provider} from 'react-redux';
 
 it(`App snapshot`, () => {
-  const store = createStore(reducer);
-  const tree = renderer.create(<Provider store={store}>
-    <App isLoaded={false}/>
-  </Provider>).toJSON();
+  const renderer = new ShallowRenderer();
+  const tree = renderer.render(<App/>);
   expect(tree).toMatchSnapshot();
 });

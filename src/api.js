@@ -1,20 +1,30 @@
 import axios from 'axios';
+import history from "./utils/history";
+import {ActionCreator as AuthorizationActionCreator} from "./reducers/user/user";
 
-export const createAPI = (onLoginFail) => {
+const BASE_URL = `https://es31-server.appspot.com/six-cities`;
+
+const onLoginFail = (response, store) => {
+  if (response && response.config.url !== `${BASE_URL}/login`) {
+    history.push(`/login`);
+    store.dispatch(AuthorizationActionCreator.setAuthorizated(false));
+  }
+};
+
+export const createAPI = (store) => {
   const api = axios.create({
-    baseURL: `https://es31-server.appspot.com/six-cities`,
+    baseURL: BASE_URL,
     timeout: 1000 * 5,
     withCredentials: true,
   });
 
-  const onSuccess = (response) => response;
-  const onFail = (err) => {
-    if (err.status === 403) {
-      onLoginFail();
+  const onFail = (error) => {
+    if (error.response && error.response.status === 403) {
+      onLoginFail(error.response, store);
     }
-    throw err;
+    return Promise.reject(error);
   };
-  api.interceptors.response.use(onSuccess, onFail);
+  api.interceptors.response.use(undefined, onFail);
 
   return api;
 };

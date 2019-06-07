@@ -1,3 +1,5 @@
+import {loadOffers} from "../offers/offers";
+
 const initialState = {
   isAuthorazated: false,
   authorizationData: null,
@@ -51,7 +53,30 @@ const authorizeUser = (email, password) => (dispatch, _getState, api) => {
       dispatch(ActionCreator.setAuthorizated(true));
     })
     .catch((error) => {
-      dispatch(ActionCreator.setAuthorizationError(error.response.data));
+      if (error.response) {
+        dispatch(ActionCreator.setAuthorizationError(error.response.data));
+      }
+    });
+};
+
+const unauthorizeUser = (dispatch, _getState, api) => {
+  api.get(`/logout`)
+    .finally(() => {
+      dispatch(ActionCreator.setAuthorizated(false));
+      dispatch(ActionCreator.setAuthorizationData(null));
+      dispatch(loadOffers());
+    });
+};
+
+const loadAuthorizationData = (dispatch, _getState, api) => {
+  return api.get(`/login`)
+    .then((response) => {
+      const data = parseAuthorizationData(response.data);
+      dispatch(ActionCreator.setAuthorizationData(data));
+      dispatch(ActionCreator.setAuthorizated(true));
+    })
+    .catch(() => {
+      dispatch(ActionCreator.setAuthorizated(false));
     });
 };
 
@@ -79,5 +104,7 @@ export {
   ActionCreator,
   reducer,
   authorizeUser,
-  parseAuthorizationData
+  unauthorizeUser,
+  loadAuthorizationData,
+  parseAuthorizationData,
 };

@@ -9,18 +9,27 @@ import {authorizeUser} from '../../reducers/user/user';
 
 import withForm from '../../hocs/with-form/with-form';
 
+import {setBodyRootClass} from '../../utils/set-body-root-class';
+
 class SignInPage extends PureComponent {
   constructor(props) {
     super(props);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    setBodyRootClass(`page page--gray page--login`, `full-height`);
+  }
+
   render() {
     const {formData = {}, onInputChange, authorizationError, isAuthorazated} = this.props;
-    const {email = ``, password = ``} = formData;
+
     if (isAuthorazated) {
       return <Redirect to="/" />;
     }
+
+    const {email = ``, password = ``} = formData;
+
     return <main className="page__main page__main--login">
       <div className="page__login-container container">
         <section className="login">
@@ -62,14 +71,14 @@ class SignInPage extends PureComponent {
 }
 
 SignInPage.propTypes = {
+  isAuthorazated: PropTypes.bool.isRequired,
+  authorizationError: PropTypes.string,
   formData: PropTypes.shape({
     email: PropTypes.string,
     password: PropTypes.string,
   }).isRequired,
   onInputChange: PropTypes.func.isRequired,
   submitAuthorization: PropTypes.func.isRequired,
-  isAuthorazated: PropTypes.bool.isRequired,
-  authorizationError: PropTypes.string,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
