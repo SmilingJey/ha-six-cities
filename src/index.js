@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {compose} from 'recompose';
 
-import {createAPI} from './api';
+import {createAPI, setupAPIinterceptors} from './api';
 import {loadAuthorizationData} from './reducers/user/user';
 
 const init = () => {
@@ -27,6 +27,7 @@ const init = () => {
   }
 
   store.dispatch(loadAuthorizationData);
+  setupAPIinterceptors(api, store);
 
   ReactDOM.render(
       <Provider store={store}>
