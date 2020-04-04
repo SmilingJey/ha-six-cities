@@ -115,7 +115,7 @@ class PlacePage extends PureComponent {
               <div className="property__host-user user">
                 <div className={`property__avatar-wrapper ${place.host.isPro &&
                 `property__avatar-wrapper--pro`} user__avatar-wrapper`}>
-                  <img className="property__avatar user__avatar" src={`/` + place.host.avatarUrl}
+                  <img className="property__avatar user__avatar" src={place.host.avatarUrl}
                     width="74" height="74" alt="Host avatar"/>
                 </div>
                 <span className="property__user-name">{place.host.name}</span>

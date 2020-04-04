@@ -1,5 +1,5 @@
 /* eslint-disable */
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require(`path`);
 
 module.exports = {
@@ -25,5 +25,8 @@ module.exports = {
       }
     ],
   },
-  devtool: `source-map`
+  devtool: `source-map`,
+  plugins: [
+    //new BundleAnalyzerPlugin(),
+  ]
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Switch, Route} from 'react-router-dom';
+import {HashRouter, Switch, Route} from 'react-router-dom';
 import ScrollToTop from '../scroll-to-top/scroll-to-top.jsx';
 import history from '../../utils/history';
 
@@ -11,7 +11,7 @@ import PlacePage from '../place-page/place-page.jsx';
 
 const App = () => {
   return <React.Fragment>
-    <Router history={history}>
+    <HashRouter history={history}>
       <ScrollToTop>
         <Header />
         <Switch>
@@ -21,7 +21,7 @@ const App = () => {
           <Route path="/offer/:id" component={PlacePage} />
         </Switch>
       </ScrollToTop>
-    </Router>
+    </HashRouter>
   </React.Fragment>;
 };
 

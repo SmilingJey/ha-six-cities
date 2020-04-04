@@ -3,12 +3,12 @@ import leaflet from 'leaflet';
 import PropTypes from "prop-types";
 
 const markerIcon = leaflet.icon({
-  iconUrl: `/img/pin.svg`,
+  iconUrl: `img/pin.svg`,
   iconSize: [27, 39]
 });
 
 const activeMarkerIcon = leaflet.icon({
-  iconUrl: `/img/active-pin.svg`,
+  iconUrl: `img/active-pin.svg`,
   iconSize: [27, 39]
 });
 
@@ -28,7 +28,7 @@ class CityMap extends PureComponent {
     leaflet.tileLayer(
         `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`,
         {
-          attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> 
+          attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
             contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
         }
     ).addTo(this.map);
